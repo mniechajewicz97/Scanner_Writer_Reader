@@ -183,8 +183,7 @@ public class Main {
         System.out.println("Wszytskie linie: " + allLines);
 
         // GIT
-
-
+        System.out.println("Testujemy gita! Jest GIT!");
         }
     }
 
