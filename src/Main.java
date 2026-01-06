@@ -139,7 +139,9 @@ public class Main {
         String line2;
         while ((line2 = numbersReader.readLine()) != null) {
             System.out.println(line2);
-            counter2++;
+            int number = Integer.parseInt(line2);
+            suma += number;
+
         }
         System.out.println("Wszystkie liczby: " + counter2);
         numbersReader.close();
@@ -184,6 +186,7 @@ public class Main {
 
         // GIT
         System.out.println("Testujemy gita! Jest GIT!");
+        //tutaj dodalem jakies zmiany
         //zdanie dmowe zrobione
         }
     }
