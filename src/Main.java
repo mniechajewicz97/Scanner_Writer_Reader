@@ -184,6 +184,7 @@ public class Main {
 
         // GIT
         System.out.println("Testujemy gita! Jest GIT!");
+        //zdanie dmowe zrobione
         }
     }
 
