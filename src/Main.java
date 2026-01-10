@@ -105,20 +105,24 @@ public class Main {
         students.write("Ciri the Cat\n");
         students.write("Kazik\n");
         students.write("Antygona\n");
+        students.write("Ananas\n");
         students.close();
 
         BufferedReader studentsReader = new BufferedReader(new FileReader("students.txt"));
+        BufferedWriter studentsWriter = new BufferedWriter(new FileWriter("students_copy.txt"));
         int counter = 0;
         String name;
         while ((name = studentsReader.readLine()) != null) {
             System.out.println("Wszyscy futrzaści studenci: " + name);
             counter++;
+            studentsWriter.write(name +"\n");
             if (name.startsWith("A")) {
                 System.out.println("Imie zaczynające się na A: " + name);
             }
         }
         System.out.println("Liczba linii: " + counter);
         studentsReader.close();
+        studentsWriter.close();
         System.out.println("--------------------------");
 
         FileWriter numbers = new FileWriter("numbers.txt");
@@ -135,15 +139,13 @@ public class Main {
         numbers.close();
 
         BufferedReader numbersReader = new BufferedReader(new FileReader("numbers.txt"));
-        int counter2 = 0;
+        int suma = 0;
         String line2;
         while ((line2 = numbersReader.readLine()) != null) {
             System.out.println(line2);
-            int number = Integer.parseInt(line2);
-            suma += number;
-
+            suma += Integer.parseInt(line2);
         }
-        System.out.println("Wszystkie liczby: " + counter2);
+        System.out.println("Suma wynosi: " + suma);
         numbersReader.close();
 
         System.out.println("------------------------");
@@ -160,26 +162,29 @@ public class Main {
         studentsNamesReader.close();
         System.out.println("------------------------------");
 
-        Path source = Path.of("students.txt"); // NIE WIEM CZY TO JEST DOBRZE BO KOPII NIE MIELISMY A TAK MOWI CHAT ZEBY TO ZROBIC
-        Path target = Path.of("students_copy.txt");
 
-        Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
-        BufferedReader studentsReader2 = new BufferedReader(new FileReader("students_copy.txt"));
+        BufferedReader studenciReader = new BufferedReader(new FileReader("students_copy.txt"));
         List<String> allLines = new ArrayList<>();
 
         int maximum = 0;
         String maxLine;
         String longestLine = " ";
         int countA = 0;
-        while ((maxLine = studentsReader2.readLine()) != null) {
+
+        while ((maxLine = studenciReader.readLine()) != null) {
             allLines.add(maxLine);
-            if (maxLine.contains("a"))
-                countA++;
+            for (int i = 0; i < maxLine.length(); i++) {
+                if (maxLine.charAt(i) == 'a') {
+                    countA++;
+                }
+            }
             if (maxLine.length() > maximum) {
                 maximum = maxLine.length();
                 longestLine = maxLine;
             }
         }
+
+
         System.out.println("Najdłuższa linia: " + longestLine);
         System.out.println("Ilość wystąpień 'a': " + countA);
         System.out.println("Wszytskie linie: " + allLines);
@@ -188,8 +193,11 @@ public class Main {
         System.out.println("Testujemy gita! Jest GIT!");
         //tutaj dodalem jakies zmiany
         //zdanie dmowe zrobione
-        }
+        // jak bd pytac czata to mow zjebowi ze na UI ma ci pokazywac a nie w konsoli!
+        //DO POCZYTANIA ogolnie teorie o pull requestach commitach merge i tak dalej plus czym jest squashowanie commitow i czym
+        //jest cherry pickowanie commitow
     }
+}
 
 
 
