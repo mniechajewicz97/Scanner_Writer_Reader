@@ -2,13 +2,7 @@ import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
-import java.io.IOException;
-
 
 public class Main {
     public Main() throws IOException {
@@ -188,7 +182,7 @@ public class Main {
         System.out.println("Najdłuższa linia: " + longestLine);
         System.out.println("Ilość wystąpień 'a': " + countA);
         System.out.println("Wszytskie linie: " + allLines);
-
+        studenciReader.close();
         // GIT
         System.out.println("Testujemy gita! Jest GIT!");
         //tutaj dodalem jakies zmiany
